@@ -65,6 +65,7 @@ func main() {
 		fr32Cmd,
 		chainCmd,
 		balancerCmd,
+		dataexplCmd,
 	}
 
 	app := &cli.App{
