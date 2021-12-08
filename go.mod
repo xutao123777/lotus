@@ -50,8 +50,8 @@ require (
 	github.com/filecoin-project/specs-actors/v4 v4.0.1
 	github.com/filecoin-project/specs-actors/v5 v5.0.4
 	github.com/filecoin-project/specs-actors/v6 v6.0.1
-	github.com/filecoin-project/specs-actors/v7 v7.0.0-20211118013026-3dce48197cec
-	github.com/filecoin-project/specs-storage v0.1.1-0.20211202151826-2e51da61d454
+	github.com/filecoin-project/specs-actors/v7 v7.0.0-20211215204929-57f5fc16b78d
+	github.com/filecoin-project/specs-storage v0.1.1-0.20211215223223-42b171e8e63a
 	github.com/filecoin-project/test-vectors/schema v0.0.5
 	github.com/gbrlsnchs/jwt/v3 v3.0.1
 	github.com/gdamore/tcell/v2 v2.2.0
@@ -172,3 +172,7 @@ require (
 replace github.com/filecoin-project/filecoin-ffi => ./extern/filecoin-ffi
 
 replace github.com/filecoin-project/test-vectors => ./extern/test-vectors
+
+// replace github.com/filecoin-project/specs-actors/v7 => /Users/zenground0/pl/repos/specs-actors
+
+// replace github.com/filecon-project/specs-storage => /Users/zenground0/pl/repos/specs-storage
