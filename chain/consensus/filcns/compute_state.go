@@ -2,6 +2,7 @@ package filcns
 
 import (
 	"context"
+	"os"
 	"sync/atomic"
 
 	"github.com/filecoin-project/lotus/chain/rand"
@@ -92,7 +93,11 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context, sm *stmgr.StateManager
 		partDone()
 	}()
 
-	makeVmWithBaseState := func(base cid.Cid) (*vm.VM, error) {
+	makeVmWithBaseState := func(base cid.Cid) (vm.VMI, error) {
+		if os.Getenv("LOTUS_USE_FVM_DOESNT_WORK_YET") == "1" {
+			return vm.NewFVM()
+		}
+
 		vmopt := &vm.VMOpts{
 			StateBase:      base,
 			Epoch:          epoch,
