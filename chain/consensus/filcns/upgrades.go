@@ -1245,8 +1245,14 @@ func PreUpgradeActorsV7(ctx context.Context, sm *stmgr.StateManager, cache stmgr
 		workerCount /= 2
 	}
 
+	lbts, lbRoot, err := stmgr.GetLookbackTipSetForRound(ctx, sm, ts, epoch)
+	if err != nil {
+		return xerrors.Errorf("error getting lookback ts for premigration: %w", err)
+	}
+
 	config := nv15.Config{MaxWorkers: uint(workerCount)}
-	_, err := upgradeActorsV7Common(ctx, sm, cache, root, epoch, ts, config)
+
+	_, err = upgradeActorsV7Common(ctx, sm, cache, lbRoot, epoch, lbts, config)
 	return err
 }
 
